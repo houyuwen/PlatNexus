@@ -1,0 +1,188 @@
+{
+	// Place your metacc 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	//
+	// You can also restrict snippets to specific files using include/exclude patterns:
+	// "Test snippet": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "test",
+	// 	"body": "test('$1', () => {\n\t$0\n});",
+	// 	"include": ["**/*.test.ts", "*.spec.ts"],
+	// 	"exclude": ["**/temp/*.ts"],
+	// 	"description": "Insert test block"
+	// }
+	"Snippet of new source file comments.": {
+		"scope": "c,c++",
+		"prefix": ["snippet-newc"],
+		"body": [
+			"/**",
+			" *******************************************************************************",
+			" * @file   ${TM_FILENAME}",
+			" * @author houyuwenE@outlook.com",
+			" * @brief  ${1:brief}",
+			" * @version 0.1",
+			" * @date ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+			" ******************************************************************************",
+			" * @attention",
+			" *",
+			" * Copyright (c) ${CURRENT_YEAR} houyuwen.",
+			" * SPDX-License-Identifier: Apache-2.0",
+			" * Licensed under the Apache License, Version 2.0 (the \"License\");",
+			" * you may not use this file except in compliance with the License.",
+			" * You may obtain a copy of the License at",
+			" *",
+			" *     http://www.apache.org/licenses/LICENSE-2.0",
+			" *",
+			" * Unless required by applicable law or agreed to in writing, software",
+			" * distributed under the License is distributed on an \"AS IS\" BASIS,",
+			" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.",
+			" * See the License for the specific language governing permissions and",
+			" * limitations under the License.",
+			" *",
+			" ******************************************************************************",
+			" */\n",
+			"/* Includes ------------------------------------------------------------------*/",
+			"#include \"${2:${TM_FILENAME_BASE}.h}\"\n",
+			"/* Private define ------------------------------------------------------------*/",
+			"/* Private macro -------------------------------------------------------------*/",
+			"/* Private typedef -----------------------------------------------------------*/",
+			"/* Private constants ---------------------------------------------------------*/",
+			"/* Private variables ---------------------------------------------------------*/",
+			"/* Private function prototypes -----------------------------------------------*/",
+			"/* Private functions ---------------------------------------------------------*/",
+			"/* Exported functions --------------------------------------------------------*/\n",
+			"/* End of file ---------------------------------------------------------------*/\n",
+		],
+		"description": "Create C source file skeleton with Doxygen header and section blocks."
+	},
+	"Snippet of new header file comments.": {
+		"scope": "c,c++",
+		"prefix": ["snippet-newh"],
+		"body": [
+			"/**",
+			" *******************************************************************************",
+			" * @file   ${TM_FILENAME}",
+			" * @author houyuwenE@outlook.com",
+			" * @brief  ${1:brief}",
+			" * @version 0.1",
+			" * @date ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+			" ******************************************************************************",
+			" * @attention",
+			" *",
+			" * Copyright (c) ${CURRENT_YEAR} houyuwen.",
+			" * SPDX-License-Identifier: Apache-2.0",
+			" * Licensed under the Apache License, Version 2.0 (the \"License\");",
+			" * you may not use this file except in compliance with the License.",
+			" * You may obtain a copy of the License at",
+			" *",
+			" *     http://www.apache.org/licenses/LICENSE-2.0",
+			" *",
+			" * Unless required by applicable law or agreed to in writing, software",
+			" * distributed under the License is distributed on an \"AS IS\" BASIS,",
+			" * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.",
+			" * See the License for the specific language governing permissions and",
+			" * limitations under the License.",
+			" *",
+			" ******************************************************************************",
+			" */\n",
+			"#pragma once\n",
+			"#ifdef __cplusplus",
+			"extern \"C\" {",
+			"#endif\n",
+			"/* Includes ------------------------------------------------------------------*/\n",
+			"/* Private define ------------------------------------------------------------*/",
+			"/* Private macros ------------------------------------------------------------*/",
+			"/* Private types -------------------------------------------------------------*/",
+			"/* Private constants ---------------------------------------------------------*/",
+			"/* Private variables ---------------------------------------------------------*/",
+			"/* Exported types ------------------------------------------------------------*/",
+			"/* Exported constants --------------------------------------------------------*/",
+			"/* Exported macro ------------------------------------------------------------*/",
+			"/* Exported functions --------------------------------------------------------*/\n",
+			"#ifdef __cplusplus",
+			"}",
+			"#endif /* __cplusplus */\n",
+			"/* End of file ---------------------------------------------------------------*/\n",
+		],
+		"description": "Create C header template using pragma once and C/C++ compatibility block."
+	},
+	"Doxygen Define Group": {
+        "prefix": ["doxyg", "defgroup"],
+        "body": [
+            "/**",
+            " * @defgroup ${1:group_name} ${2:group description}",
+            " * @{",
+            " */",
+            "",
+            "$0",
+            "",
+            "/**",
+            " * @}",
+            " */"
+        ],
+        "description": "Doxygen @defgroup block."
+    },
+    "Doxygen Add To Group": {
+        "prefix": ["doxya", "addgroup"],
+        "body": [
+            "/**",
+            " * @addtogroup ${1:group_name}",
+            " * @{",
+            " */",
+            "",
+            "$0",
+            "",
+            "/**",
+            " * @}",
+            " */"
+        ],
+        "description": "Doxygen @addtogroup block."
+    },
+	"Python Module Header (PEP 257)": {
+		"scope": "python",
+		"prefix": ["pymod", "pyfile", "phead"],
+		"body": [
+			"#!/usr/bin/env python3",
+			"# -*- coding: utf-8 -*-",
+			"# SPDX-License-Identifier: Apache-2.0",
+			"\"\"\"${1:模块简述}.",
+			"",
+			"${2:模块详细说明。}",
+			"",
+			"Copyright (c) ${CURRENT_YEAR} houyuwen.",
+			"",
+			"Licensed under the Apache License, Version 2.0 (the \"License\");",
+			"you may not use this file except in compliance with the License.",
+			"You may obtain a copy of the License at",
+			"",
+			"    http://www.apache.org/licenses/LICENSE-2.0",
+			"",
+			"Unless required by applicable law or agreed to in writing, software",
+			"distributed under the License is distributed on an \"AS IS\" BASIS,",
+			"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.",
+			"See the License for the specific language governing permissions and",
+			"limitations under the License.",
+			"",
+			"Author: houyuwenE@outlook.com",
+			"Date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+			"\"\"\"",
+			"",
+			"$0"
+		],
+		"description": "Python module header template for public release (PEP 257 + Apache-2.0)."
+	}
+}
